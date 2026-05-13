@@ -27,3 +27,12 @@ html, body, #root {
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
 }
+
+/* ── RESPONSIVE ROOT OVERRIDES ── */
+@media (max-width: 700px) {
+  html, body, #root {
+    overflow: auto;
+    height: auto;
+    min-height: 100%;
+  }
+}

@@ -470,3 +470,238 @@
   .chartCard { break-inside: avoid; }
   .featuresTable { break-inside: avoid; }
 }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — TABLET  (≤ 700px)
+═══════════════════════════════════════ */
+@media (max-width: 700px) {
+  .header {
+    padding: 12px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .headerLeft {
+    gap: 12px;
+  }
+
+  .logoImg {
+    height: 26px;
+  }
+
+  .headerTitle {
+    padding-left: 10px;
+  }
+
+  .headerMain {
+    font-size: 0.9rem;
+  }
+
+  .headerRight {
+    width: 100%;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .exportGroup {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .exportBtn {
+    padding: 6px 12px;
+    font-size: 0.65rem;
+  }
+
+  .backBtn {
+    padding: 6px 14px;
+    font-size: 0.65rem;
+  }
+
+  /* Hero strip: stack vertically */
+  .heroStrip {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 20px;
+  }
+
+  .heroLabel {
+    min-width: unset;
+  }
+
+  .heroTitle {
+    font-size: 2.4rem;
+  }
+
+  /* 6 → 3 columns */
+  .heroGrid {
+    width: 100%;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  }
+
+  .heroCard {
+    padding: 12px 8px;
+  }
+
+  /* Charts: single column */
+  .chartsRow {
+    grid-template-columns: 1fr;
+    padding: 16px 20px;
+    gap: 12px;
+  }
+
+  .featuresSection {
+    padding: 16px 20px 32px;
+  }
+
+  .featuresTableHead,
+  .featuresRow {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+
+  .reportFooter {
+    padding: 12px 20px;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — MOBILE  (≤ 500px)
+═══════════════════════════════════════ */
+@media (max-width: 500px) {
+  .header {
+    padding: 10px 14px;
+  }
+
+  .logoImg {
+    height: 22px;
+  }
+
+  .headerSub {
+    font-size: 0.52rem;
+    letter-spacing: 0.2em;
+  }
+
+  .headerMain {
+    font-size: 0.8rem;
+  }
+
+  .exportBtn {
+    padding: 5px 10px;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+  }
+
+  .exportIcon {
+    display: none;
+  }
+
+  .backBtn {
+    padding: 5px 10px;
+    font-size: 0.6rem;
+  }
+
+  .heroStrip {
+    padding: 20px 14px;
+    gap: 14px;
+  }
+
+  .heroTitle {
+    font-size: 1.8rem;
+  }
+
+  .heroEyebrow {
+    font-size: 0.55rem;
+    letter-spacing: 0.18em;
+  }
+
+  .heroDesc {
+    font-size: 0.62rem;
+  }
+
+  /* 3 → 2 columns */
+  .heroGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+
+  .heroCardValue {
+    font-size: 1.05rem;
+  }
+
+  .heroCardLabel {
+    font-size: 0.55rem;
+  }
+
+  .heroCardSub {
+    font-size: 0.52rem;
+  }
+
+  .chartsRow {
+    padding: 12px 14px;
+    gap: 10px;
+  }
+
+  .featuresSection {
+    padding: 12px 14px 28px;
+  }
+
+  .featuresSectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .featuresSectionTitle {
+    font-size: 1.1rem;
+  }
+
+  /* Features table: collapse to 2 columns (name + 1 variant) or scroll */
+  .featuresTable {
+    overflow-x: auto;
+  }
+
+  .featuresTableHead,
+  .featuresRow {
+    min-width: 340px;
+  }
+
+  .featuresItemName {
+    font-size: 0.68rem;
+  }
+
+  .featuresCol,
+  .featuresColVar {
+    font-size: 0.55rem;
+    letter-spacing: 0.08em;
+  }
+
+  .featuresTabs {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    padding-bottom: 4px;
+  }
+
+  .featuresTabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .featuresTab {
+    white-space: nowrap;
+    padding: 6px 10px;
+    font-size: 0.6rem;
+  }
+
+  .reportFooter {
+    padding: 10px 14px;
+  }
+
+  .reportFooter span {
+    font-size: 0.55rem;
+  }
+}

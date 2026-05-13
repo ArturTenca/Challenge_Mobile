@@ -273,3 +273,166 @@
   text-align: center;
   line-height: 1.6;
 }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — TABLET  (≤ 700px)
+═══════════════════════════════════════ */
+@media (max-width: 700px) {
+  .header {
+    padding: 16px 20px;
+  }
+
+  .logoImg {
+    height: 28px;
+    margin-left: 8px;
+  }
+
+  .nav {
+    gap: 16px;
+  }
+
+  .navLink {
+    display: none;
+  }
+
+  .ctaSmall {
+    padding: 7px 14px;
+    font-size: 0.65rem;
+  }
+
+  .leftPanel {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: auto;
+    bottom: 0;
+    transform: none;
+    max-width: 100%;
+    padding: 24px 24px 28px;
+    background: linear-gradient(to top, rgba(8,10,14,0.95) 0%, rgba(8,10,14,0.7) 80%, transparent 100%);
+  }
+
+  .eyebrow {
+    font-size: 0.65rem;
+    margin-bottom: 6px;
+  }
+
+  .titleF {
+    font-size: 4rem;
+  }
+
+  .titleSub {
+    font-size: 1.8rem;
+  }
+
+  .description {
+    font-size: 0.8rem;
+    margin-bottom: 20px;
+    max-width: 100%;
+  }
+
+  .specsGrid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px 16px;
+    padding: 16px;
+    margin-bottom: 20px;
+  }
+
+  .specValue {
+    font-size: 1.05rem;
+  }
+
+  .actions {
+    gap: 10px;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    padding: 12px 20px;
+    font-size: 0.72rem;
+    flex: 1;
+  }
+
+  .badge {
+    display: none;
+  }
+
+  .hint {
+    bottom: auto;
+    top: 80px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.65rem;
+  }
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — MOBILE  (≤ 500px)
+═══════════════════════════════════════ */
+@media (max-width: 500px) {
+  .header {
+    padding: 12px 16px;
+  }
+
+  .logoImg {
+    height: 24px;
+  }
+
+  .ctaSmall {
+    display: none;
+  }
+
+  .leftPanel {
+    padding: 20px 16px 24px;
+  }
+
+  .eyebrow {
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+  }
+
+  .titleF {
+    font-size: 3rem;
+  }
+
+  .titleSub {
+    font-size: 1.4rem;
+    letter-spacing: 0.18em;
+  }
+
+  .description {
+    font-size: 0.75rem;
+    margin-bottom: 16px;
+  }
+
+  .specsGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 10px 16px;
+    padding: 12px;
+    margin-bottom: 16px;
+  }
+
+  .specValue {
+    font-size: 0.95rem;
+  }
+
+  .specLabel {
+    font-size: 0.6rem;
+  }
+
+  .actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .btnPrimary,
+  .btnSecondary {
+    padding: 13px 20px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .hint {
+    display: none;
+  }
+}
