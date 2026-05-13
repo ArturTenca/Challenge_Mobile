@@ -1,0 +1,472 @@
+/* ── PAGE SHELL ── */
+.page {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #080a0e;
+  overflow: hidden;
+}
+
+/* ── HEADER ── */
+.header {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 40px;
+  background: linear-gradient(to bottom, rgba(8,10,14,0.98) 0%, rgba(8,10,14,0.92) 100%);
+  border-bottom: 1px solid rgba(200, 146, 42, 0.12);
+  z-index: 20;
+}
+
+.headerLeft {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.logoBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+}
+
+.logoImg {
+  height: 32px;
+  width: auto;
+  object-fit: contain;
+}
+
+.headerTitle {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-left: 2px solid #c8922a;
+  padding-left: 16px;
+}
+
+.headerSub {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  color: #c8922a;
+  text-transform: uppercase;
+}
+
+.headerMain {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.12em;
+  color: #e8e2d6;
+}
+
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.exportGroup {
+  display: flex;
+  gap: 8px;
+}
+
+.exportBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 18px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #9aa0ad;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border-radius: 2px;
+}
+
+.exportBtn:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: #e8e2d6;
+  background: rgba(255,255,255,0.04);
+}
+
+.exportBtnPdf {
+  border-color: rgba(200, 146, 42, 0.4);
+  color: #c8922a;
+}
+
+.exportBtnPdf:hover {
+  background: rgba(200, 146, 42, 0.1);
+  border-color: #c8922a;
+  color: #e0a832;
+}
+
+.exportBtnActive {
+  background: rgba(200, 146, 42, 0.15) !important;
+  border-color: #c8922a !important;
+  color: #c8922a !important;
+}
+
+.exportIcon {
+  font-size: 0.8rem;
+}
+
+.backBtn {
+  padding: 8px 20px;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #5a6478;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+
+.backBtn:hover {
+  color: #e8e2d6;
+  border-color: rgba(255,255,255,0.3);
+}
+
+/* ── SCROLL AREA ── */
+.scroll {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.scroll::-webkit-scrollbar-thumb {
+  background: rgba(200, 146, 42, 0.25);
+  border-radius: 2px;
+}
+
+/* ── HERO STRIP ── */
+.heroStrip {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 36px 40px;
+  background: linear-gradient(135deg, rgba(15,19,24,0.9) 0%, rgba(8,10,14,0.6) 100%);
+  border-bottom: 1px solid rgba(200,146,42,0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroStrip::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 80% 50%, rgba(200,146,42,0.04) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroLabel {
+  flex-shrink: 0;
+  min-width: 200px;
+}
+
+.heroEyebrow {
+  display: block;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: #c8922a;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.heroTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.2rem;
+  line-height: 1;
+  color: #e8e2d6;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+}
+
+.heroTitle span {
+  color: #c8922a;
+}
+
+.heroDesc {
+  font-size: 0.7rem;
+  color: #3a4a5e;
+  letter-spacing: 0.05em;
+  line-height: 1.5;
+}
+
+.heroGrid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+}
+
+.heroCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 16px 10px;
+  background: rgba(15,19,24,0.7);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-top: 2px solid rgba(200,146,42,0.3);
+  text-align: center;
+  transition: border-top-color 0.2s;
+}
+
+.heroCard:hover {
+  border-top-color: #c8922a;
+  background: rgba(200,146,42,0.05);
+}
+
+.heroCardIcon {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+
+.heroCardValue {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.05em;
+  color: #e8e2d6;
+}
+
+.heroCardLabel {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #c8922a;
+}
+
+.heroCardSub {
+  font-size: 0.6rem;
+  color: #3a4a5e;
+  text-align: center;
+  line-height: 1.3;
+}
+
+/* ── CHARTS ROW ── */
+.chartsRow {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  padding: 24px 40px;
+  background: #080a0e;
+}
+
+.chartCard {
+  background: rgba(15,19,24,0.8);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 20px 16px 16px;
+  position: relative;
+}
+
+.chartCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(to right, #c8922a, transparent);
+}
+
+.chartCardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  margin-bottom: 12px;
+}
+
+.chartCardTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.1em;
+  color: #e8e2d6;
+}
+
+.chartCardSub {
+  font-size: 0.65rem;
+  color: #3a4a5e;
+  letter-spacing: 0.05em;
+}
+
+/* ── FEATURES SECTION ── */
+.featuresSection {
+  padding: 24px 40px 40px;
+}
+
+.featuresSectionHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.featuresSectionTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 0.1em;
+  color: #e8e2d6;
+}
+
+.featuresTabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.featuresTab {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.06);
+  color: #3a4a5e;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 8px 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  border-radius: 2px;
+}
+
+.featuresTab:hover {
+  color: #9aa0ad;
+  border-color: rgba(255,255,255,0.15);
+}
+
+.featuresTabActive {
+  background: rgba(200,146,42,0.1);
+  border-color: #c8922a;
+  color: #c8922a;
+}
+
+/* TABLE */
+.featuresTable {
+  background: rgba(15,19,24,0.7);
+  border: 1px solid rgba(255,255,255,0.04);
+  overflow: hidden;
+}
+
+.featuresTableHead {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 12px 20px;
+  background: rgba(200,146,42,0.05);
+  border-bottom: 1px solid rgba(200,146,42,0.15);
+}
+
+.featuresCol {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #c8922a;
+}
+
+.featuresColVar {
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #3a4a5e;
+  text-align: center;
+}
+
+.featuresRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+  align-items: center;
+  transition: background 0.15s;
+}
+
+.featuresRow:hover {
+  background: rgba(255,255,255,0.02);
+}
+
+.featuresRowAlt {
+  background: rgba(255,255,255,0.01);
+}
+
+.featuresItemName {
+  font-size: 0.75rem;
+  color: #9aa0ad;
+  letter-spacing: 0.02em;
+}
+
+.featuresItemCell {
+  display: flex;
+  justify-content: center;
+}
+
+.checkYes {
+  font-size: 0.9rem;
+  color: #c8922a;
+  font-weight: 700;
+}
+
+.checkNo {
+  font-size: 0.9rem;
+  color: rgba(255,255,255,0.08);
+}
+
+.featuresValue {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.9rem;
+  color: #e8e2d6;
+  letter-spacing: 0.04em;
+}
+
+/* ── FOOTER ── */
+.reportFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  background: rgba(8,10,14,0.8);
+}
+
+.reportFooter span {
+  font-size: 0.62rem;
+  color: #2a3240;
+  letter-spacing: 0.05em;
+}
+
+/* ── PRINT STYLES ── */
+@media print {
+  .header { position: static; }
+  .exportGroup, .backBtn { display: none; }
+  .scroll { overflow: visible; height: auto; }
+  .page { height: auto; overflow: visible; }
+  .chartCard { break-inside: avoid; }
+  .featuresTable { break-inside: avoid; }
+}
