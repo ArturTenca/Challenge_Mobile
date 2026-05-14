@@ -6,7 +6,7 @@ import * as THREE from 'three'
 // Groups identified by color: body panel, glass, wheels, chrome, interior, etc.
 const MATERIAL_MAP = {
   wire_134110008: { // dark gold → body paint
-    color: '#1a2535',
+    color: '#000000ff',
     roughness: 0.12,
     metalness: 0.85,
     clearcoat: 1.0,
@@ -14,26 +14,26 @@ const MATERIAL_MAP = {
     type: 'physical',
   },
   wire_224198087: { // gold/yellow → chrome / trim
-    color: '#c8d0da',
+    color: '#000000ff',
     roughness: 0.08,
     metalness: 1.0,
     envMapIntensity: 3,
     type: 'standard',
   },
   wire_177028149: { // purple → interior / plastic
-    color: '#1a1a1e',
+    color: '#000000ff',
     roughness: 0.6,
     metalness: 0.1,
     type: 'standard',
   },
   wire_134006006: { // dark red → underbody / frame
-    color: '#111416',
+    color: '#000000ff',
     roughness: 0.9,
     metalness: 0.15,
     type: 'standard',
   },
   wire_087224198: { // teal → glass
-    color: '#7aacbb',
+    color: '#000000ff',
     roughness: 0.04,
     metalness: 0.05,
     transmission: 0.88,
@@ -49,7 +49,7 @@ const MATERIAL_MAP = {
     type: 'standard',
   },
   wire_224086086: { // salmon/red → body panels 2
-    color: '#1a2535',
+    color: '#000000ff',
     roughness: 0.12,
     metalness: 0.85,
     clearcoat: 1.0,
@@ -57,7 +57,7 @@ const MATERIAL_MAP = {
     type: 'physical',
   },
   wire_229166215: { // pink → lights / lenses
-    color: '#fff4c0',
+    color: '#000000ff',
     emissive: '#ffe88a',
     emissiveIntensity: 0.6,
     roughness: 0.05,
@@ -65,14 +65,14 @@ const MATERIAL_MAP = {
     type: 'standard',
   },
   wire_028089177: { // blue → rim / wheels
-    color: '#b8c4d0',
+    color: '#000000ff',
     roughness: 0.15,
     metalness: 0.95,
     envMapIntensity: 2.5,
     type: 'standard',
   },
   wire_143224087: { // lime → body accent / orange trim (now matching body)
-    color: '#1a2535',
+    color: '#000000ff',
     roughness: 0.12,
     metalness: 0.85,
     clearcoat: 1.0,

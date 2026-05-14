@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap');
+﻿@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600&display=swap');
 
 *, *::before, *::after {
   box-sizing: border-box;
@@ -10,8 +10,8 @@
   --bg: #080a0e;
   --surface: #0f1318;
   --border: #1a2030;
-  --accent: #c8922a;
-  --accent-glow: rgba(200, 146, 42, 0.3);
+  --accent: #f54b2e;
+  --accent-glow: rgba(245, 75, 46, 0.3);
   --text-primary: #e8e2d6;
   --text-secondary: #5a6478;
   --ford-blue: #003478;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+﻿import { useState, useEffect } from 'react'
 import styles from './HeroUI.module.css'
 import fordLogo from '../assets/Ford-Logo-PNG-Isolated-Image.webp'
 
@@ -65,7 +65,7 @@ export default function HeroUI({ onViewSpecs, onViewReport, onHome }) {
       </div>
 
       <div className={styles.badge}>
-        <span className={styles.badgeYear}>2024</span>
+        <span className={styles.badgeYear}>2026</span>
         <div className={styles.badgeLine} />
         <span className={styles.badgeText}>SÉRIE<br/>ESPECIAL</span>
       </div>

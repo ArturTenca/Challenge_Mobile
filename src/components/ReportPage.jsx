@@ -1,4 +1,4 @@
-import { useState } from 'react'
+﻿import { useState } from 'react'
 import {
   RadarChart, Radar, PolarGrid, PolarAngleAxis, PolarRadiusAxis, ResponsiveContainer,
   BarChart, Bar, XAxis, YAxis, Tooltip, CartesianGrid, Legend,
@@ -28,7 +28,7 @@ const RADAR_DATA = [
 ]
 
 const RADIAL_DATA = [
-  { name: 'Limited+', value: 95, fill: '#c8922a' },
+  { name: 'Limited+', value: 95, fill: '#f54b2e' },
   { name: 'Limited', value: 76, fill: '#4a7aff' },
   { name: 'XLT', value: 62, fill: '#2a9d8f' },
 ]
@@ -226,7 +226,7 @@ Ford Motor Company - Todos os direitos reservados
 // ── COMPONENT ────────────────────────────────────────────────────────────────
 const TOOLTIP_STYLE = {
   backgroundColor: 'rgba(8,10,14,0.95)',
-  border: '1px solid rgba(200,146,42,0.3)',
+  border: '1px solid rgba(245, 75, 46,0.3)',
   borderRadius: '4px',
   color: '#e8e2d6',
   fontSize: '0.75rem',
@@ -355,7 +355,7 @@ export default function ReportPage({ onBack, onHome }) {
                 <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
                 <Radar name="XLT" dataKey="XLT" stroke="#2a9d8f" fill="#2a9d8f" fillOpacity={0.15} strokeWidth={2} />
                 <Radar name="Limited" dataKey="Limited" stroke="#4a7aff" fill="#4a7aff" fillOpacity={0.15} strokeWidth={2} />
-                <Radar name="Limited+" dataKey="Limited+" stroke="#c8922a" fill="#c8922a" fillOpacity={0.2} strokeWidth={2} />
+                <Radar name="Limited+" dataKey="Limited+" stroke="#f54b2e" fill="#f54b2e" fillOpacity={0.2} strokeWidth={2} />
                 <Legend wrapperStyle={{ fontSize: '0.7rem', color: '#5a6478', fontFamily: 'Inter' }} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
               </RadarChart>
@@ -377,7 +377,7 @@ export default function ReportPage({ onBack, onHome }) {
                 <Legend wrapperStyle={{ fontSize: '0.7rem', color: '#5a6478', fontFamily: 'Inter' }} />
                 <Bar dataKey="xlt" name="XLT" fill="#2a9d8f" radius={[2, 2, 0, 0]} />
                 <Bar dataKey="limited" name="Limited" fill="#4a7aff" radius={[2, 2, 0, 0]} />
-                <Bar dataKey="limitedPlus" name="Limited+" fill="#c8922a" radius={[2, 2, 0, 0]} />
+                <Bar dataKey="limitedPlus" name="Limited+" fill="#f54b2e" radius={[2, 2, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>

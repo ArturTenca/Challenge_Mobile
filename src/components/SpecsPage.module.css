@@ -61,7 +61,7 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1rem;
   letter-spacing: 0.15em;
-  color: #c8922a;
+  color: #f54b2e;
 }
 
 .backBtn {
@@ -85,8 +85,8 @@
 
 .reportBtn {
   background: #080a0e;
-  border: 1px solid rgba(200, 146, 42, 0.4);
-  color: #c8922a;
+  border: 1px solid rgba(245, 75, 46, 0.4);
+  color: #f54b2e;
   font-family: 'Inter', sans-serif;
   font-size: 0.75rem;
   font-weight: 600;
@@ -98,9 +98,9 @@
 }
 
 .reportBtn:hover {
-  background: rgba(200, 146, 42, 0.2);
-  border-color: #c8922a;
-  color: #e0a832;
+  background: rgba(245, 75, 46, 0.2);
+  border-color: #f54b2e;
+  color: #f54b2e;
   transform: translateY(-1px);
 }
 
@@ -123,7 +123,7 @@
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.3em;
-  color: #c8922a;
+  color: #f54b2e;
   margin-bottom: 12px;
   padding-left: 4px;
 }
@@ -153,12 +153,12 @@
 }
 
 .camCategory:hover {
-  color: #c8922a;
+  color: #f54b2e;
 }
 
 .camCategoryActive {
-  color: #c8922a;
-  border-left-color: #c8922a;
+  color: #f54b2e;
+  border-left-color: #f54b2e;
 }
 
 .chevron {
@@ -198,8 +198,8 @@
 }
 
 .camChildActive {
-  color: #c8922a !important;
-  border-left-color: #c8922a;
+  color: #f54b2e !important;
+  border-left-color: #f54b2e;
 }
 
 @keyframes slideIn {
@@ -219,7 +219,7 @@
   background: rgba(8, 10, 14, 0.5);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border-top: 1px solid rgba(200, 146, 42, 0.15);
+  border-top: 1px solid rgba(245, 75, 46, 0.15);
   padding: 0 40px 30px;
 }
 
@@ -251,8 +251,8 @@
 }
 
 .specsTabActive {
-  color: #c8922a;
-  border-bottom-color: #c8922a;
+  color: #f54b2e;
+  border-bottom-color: #f54b2e;
 }
 
 .specsTable {
@@ -291,7 +291,7 @@
   font-family: 'Bebas Neue', sans-serif;
   font-size: 1rem;
   letter-spacing: 0.25em;
-  color: rgba(200, 146, 42, 0.5);
+  color: rgba(245, 75, 46, 0.5);
   text-transform: uppercase;
   z-index: 5;
 }
@@ -364,7 +364,7 @@
 
   .camCategoryActive {
     border-left: none;
-    border-bottom-color: #c8922a;
+    border-bottom-color: #f54b2e;
   }
 
   .camChildren {
@@ -469,3 +469,298 @@
     font-size: 0.85rem;
   }
 }
+
+/* ══════════════════════════════════════════════════
+   HOTSPOT SYSTEM
+══════════════════════════════════════════════════ */
+
+.hotspotLayer {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  pointer-events: none;
+}
+
+.hotspotHint {
+  position: absolute;
+  bottom: 200px;
+  right: 44px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.3);
+  text-transform: uppercase;
+  animation: hintFade 1.5s ease-in-out infinite alternate;
+}
+
+.hotspotHintDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #f54b2e;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes hintFade {
+  from { opacity: 0.4; }
+  to   { opacity: 1;   }
+}
+
+/* ── Single Hotspot ── */
+.hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  pointer-events: all;
+  cursor: pointer;
+  z-index: 9;
+}
+
+.hotspotRing {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(245, 75, 46, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.hotspotDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #f54b2e;
+  border: 2px solid rgba(255,255,255,0.8);
+  box-shadow: 0 0 12px rgba(245, 75, 46, 0.7), 0 0 24px rgba(245, 75, 46, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+  z-index: 2;
+}
+
+.hotspot:hover .hotspotDot,
+.hotspotActive .hotspotDot {
+  transform: scale(1.4);
+  box-shadow: 0 0 20px rgba(245, 75, 46, 0.9), 0 0 40px rgba(245, 75, 46, 0.5);
+}
+
+.hotspot:hover .hotspotRing,
+.hotspotActive .hotspotRing {
+  border-color: #f54b2e;
+  animation: none;
+  transform: translate(-50%, -50%) scale(1.2);
+}
+
+@keyframes pulse {
+  0%, 100% { transform: translate(-50%,-50%) scale(1);   opacity: 0.7; }
+  50%       { transform: translate(-50%,-50%) scale(1.6); opacity: 0.2; }
+}
+
+/* ── Connector line ── */
+.hotspotLine {
+  position: absolute;
+  top: 50%;
+  height: 2px;
+  width: 60px;
+  transform: translateY(-50%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+.lineRight {
+  left: 12px;
+}
+
+.lineLeft {
+  right: 12px;
+}
+
+/* ── Panel ── */
+.hotspotPanel {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 260px;
+  z-index: 20;
+  animation: panelIn 0.2s cubic-bezier(0.16,1,0.3,1) both;
+  pointer-events: none;
+}
+
+.panelRight {
+  left: 72px;
+}
+
+.panelLeft {
+  right: 72px;
+}
+
+@keyframes panelIn {
+  from { opacity: 0; transform: translateY(-50%) scale(0.92); }
+  to   { opacity: 1; transform: translateY(-50%) scale(1); }
+}
+
+.panelInner {
+  background: rgba(8, 10, 14, 0.88);
+  border: 1px solid rgba(245, 75, 46, 0.35);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 4px;
+  padding: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(245,75,46,0.08);
+}
+
+.panelHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.panelTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.05rem;
+  letter-spacing: 0.1em;
+  color: #e8e2d6;
+  margin: 0;
+  line-height: 1.2;
+  flex: 1;
+}
+
+.panelDesc {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.68rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.5;
+  margin: 0 0 12px;
+}
+
+.panelSpecs {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+
+.panelSpecRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panelSpecLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+.panelSpecValue {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.06em;
+  color: #e8e2d6;
+}
+
+/* ── Competitor comparison ── */
+.panelCompare {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.panelCompareLabel {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.58rem;
+  letter-spacing: 0.2em;
+  color: rgba(255,255,255,0.25);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.panelCompareRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panelCompareName {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.62rem;
+  color: rgba(255,255,255,0.5);
+  width: 80px;
+  flex-shrink: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.panelCompareBar {
+  flex: 1;
+  height: 3px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.panelCompareBarFill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+.panelCompareScore {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  width: 24px;
+  text-align: right;
+}
+
+/* ── Donut chart ── */
+.donutWrap {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  flex-shrink: 0;
+}
+
+.donutLabel {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+
+.donutScore {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.donutUnit {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.5rem;
+  opacity: 0.5;
+  letter-spacing: 0.1em;
+  margin-top: 1px;
+}
+
+/* ── Hide hotspots on mobile ── */
+@media (max-width: 700px) {
+  .hotspotLayer {
+    display: none;
+  }
+}
+

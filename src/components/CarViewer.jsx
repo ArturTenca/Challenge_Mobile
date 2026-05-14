@@ -1,4 +1,4 @@
-import { Canvas } from '@react-three/fiber'
+﻿import { Canvas } from '@react-three/fiber'
 import { OrbitControls, Environment, ContactShadows, Grid } from '@react-three/drei'
 import { Suspense } from 'react'
 import FordRangerRaptor from './FordRangerRaptor'
@@ -30,7 +30,7 @@ export default function CarViewer() {
           shadow-camera-bottom={-10}
         />
         <directionalLight position={[-8, 8, -5]} intensity={0.8} color="#4a7aff" />
-        <pointLight position={[0, 6, -8]} intensity={1.2} color="#c8922a" />
+        <pointLight position={[0, 6, -8]} intensity={1.2} color="#f54b2e" />
         <spotLight
           position={[-4, 10, 4]}
           angle={0.4}

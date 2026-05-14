@@ -1,4 +1,4 @@
-/* ── PAGE SHELL ── */
+﻿/* ── PAGE SHELL ── */
 .page {
   position: relative;
   width: 100vw;
@@ -17,7 +17,7 @@
   justify-content: space-between;
   padding: 16px 40px;
   background: linear-gradient(to bottom, rgba(8,10,14,0.98) 0%, rgba(8,10,14,0.92) 100%);
-  border-bottom: 1px solid rgba(200, 146, 42, 0.12);
+  border-bottom: 1px solid rgba(245, 75, 46, 0.12);
   z-index: 20;
 }
 
@@ -45,7 +45,7 @@
   display: flex;
   flex-direction: column;
   gap: 2px;
-  border-left: 2px solid #c8922a;
+  border-left: 2px solid #f54b2e;
   padding-left: 16px;
 }
 
@@ -53,7 +53,7 @@
   font-size: 0.6rem;
   font-weight: 600;
   letter-spacing: 0.3em;
-  color: #c8922a;
+  color: #f54b2e;
   text-transform: uppercase;
 }
 
@@ -100,20 +100,20 @@
 }
 
 .exportBtnPdf {
-  border-color: rgba(200, 146, 42, 0.4);
-  color: #c8922a;
+  border-color: rgba(245, 75, 46, 0.4);
+  color: #f54b2e;
 }
 
 .exportBtnPdf:hover {
-  background: rgba(200, 146, 42, 0.1);
-  border-color: #c8922a;
-  color: #e0a832;
+  background: rgba(245, 75, 46, 0.1);
+  border-color: #f54b2e;
+  color: #f54b2e;
 }
 
 .exportBtnActive {
-  background: rgba(200, 146, 42, 0.15) !important;
-  border-color: #c8922a !important;
-  color: #c8922a !important;
+  background: rgba(245, 75, 46, 0.15) !important;
+  border-color: #f54b2e !important;
+  color: #f54b2e !important;
 }
 
 .exportIcon {
@@ -157,7 +157,7 @@
 }
 
 .scroll::-webkit-scrollbar-thumb {
-  background: rgba(200, 146, 42, 0.25);
+  background: rgba(245, 75, 46, 0.25);
   border-radius: 2px;
 }
 
@@ -168,7 +168,7 @@
   gap: 40px;
   padding: 36px 40px;
   background: linear-gradient(135deg, rgba(15,19,24,0.9) 0%, rgba(8,10,14,0.6) 100%);
-  border-bottom: 1px solid rgba(200,146,42,0.08);
+  border-bottom: 1px solid rgba(245, 75, 46,0.08);
   position: relative;
   overflow: hidden;
 }
@@ -177,7 +177,7 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 80% 50%, rgba(200,146,42,0.04) 0%, transparent 70%);
+  background: radial-gradient(ellipse at 80% 50%, rgba(245, 75, 46,0.04) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -191,7 +191,7 @@
   font-size: 0.62rem;
   font-weight: 600;
   letter-spacing: 0.25em;
-  color: #c8922a;
+  color: #f54b2e;
   text-transform: uppercase;
   margin-bottom: 8px;
 }
@@ -206,7 +206,7 @@
 }
 
 .heroTitle span {
-  color: #c8922a;
+  color: #f54b2e;
 }
 
 .heroDesc {
@@ -231,14 +231,14 @@
   padding: 16px 10px;
   background: rgba(15,19,24,0.7);
   border: 1px solid rgba(255,255,255,0.04);
-  border-top: 2px solid rgba(200,146,42,0.3);
+  border-top: 2px solid rgba(245, 75, 46,0.3);
   text-align: center;
   transition: border-top-color 0.2s;
 }
 
 .heroCard:hover {
-  border-top-color: #c8922a;
-  background: rgba(200,146,42,0.05);
+  border-top-color: #f54b2e;
+  background: rgba(245, 75, 46,0.05);
 }
 
 .heroCardIcon {
@@ -258,7 +258,7 @@
   font-weight: 600;
   letter-spacing: 0.15em;
   text-transform: uppercase;
-  color: #c8922a;
+  color: #f54b2e;
 }
 
 .heroCardSub {
@@ -291,7 +291,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: linear-gradient(to right, #c8922a, transparent);
+  background: linear-gradient(to right, #f54b2e, transparent);
 }
 
 .chartCardHeader {
@@ -362,9 +362,9 @@
 }
 
 .featuresTabActive {
-  background: rgba(200,146,42,0.1);
-  border-color: #c8922a;
-  color: #c8922a;
+  background: rgba(245, 75, 46,0.1);
+  border-color: #f54b2e;
+  color: #f54b2e;
 }
 
 /* TABLE */
@@ -378,8 +378,8 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   padding: 12px 20px;
-  background: rgba(200,146,42,0.05);
-  border-bottom: 1px solid rgba(200,146,42,0.15);
+  background: rgba(245, 75, 46,0.05);
+  border-bottom: 1px solid rgba(245, 75, 46,0.15);
 }
 
 .featuresCol {
@@ -387,7 +387,7 @@
   font-weight: 600;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #c8922a;
+  color: #f54b2e;
 }
 
 .featuresColVar {
@@ -429,7 +429,7 @@
 
 .checkYes {
   font-size: 0.9rem;
-  color: #c8922a;
+  color: #f54b2e;
   font-weight: 700;
 }
 
