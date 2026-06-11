@@ -314,6 +314,46 @@
   letter-spacing: 0.05em;
 }
 
+/* ── COMPETITOR LEGEND ── */
+.competitorLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 28px;
+  padding: 16px 40px;
+  background: rgba(15,19,24,0.5);
+  border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.legendName {
+  font-size: 0.72rem;
+  color: #9aa0ad;
+  letter-spacing: 0.04em;
+}
+
+.legendBadge {
+  font-size: 0.55rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #f54b2e;
+  padding: 2px 8px;
+  border: 1px solid rgba(245, 75, 46, 0.35);
+  border-radius: 2px;
+}
+
 /* ── FEATURES SECTION ── */
 .featuresSection {
   padding: 24px 40px 40px;
@@ -445,6 +485,400 @@
   letter-spacing: 0.04em;
 }
 
+.featuresValueHighlight {
+  color: #f54b2e;
+}
+
+.checkYesHighlight {
+  color: #f54b2e !important;
+}
+
+.featuresTableHeadWide,
+.featuresRowWide {
+  grid-template-columns: 1.4fr repeat(5, 1fr);
+}
+
+/* ── GRADES SECTION ── */
+.gradesSection {
+  padding: 32px 40px;
+  background: linear-gradient(180deg, rgba(15,19,24,0.4) 0%, rgba(8,10,14,0.8) 100%);
+  border-top: 1px solid rgba(245, 75, 46, 0.1);
+}
+
+.gradesSectionHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.gradesSectionTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.1em;
+  color: #e8e2d6;
+  margin-bottom: 6px;
+}
+
+.gradesSectionSub {
+  font-size: 0.72rem;
+  color: #3a4a5e;
+  letter-spacing: 0.04em;
+}
+
+.overallGradeCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px 32px;
+  background: rgba(245, 75, 46, 0.08);
+  border: 1px solid rgba(245, 75, 46, 0.35);
+  border-radius: 4px;
+  min-width: 140px;
+}
+
+.overallGradeLabel {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: #f54b2e;
+  margin-bottom: 4px;
+}
+
+.overallGradeValue {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: #f54b2e;
+  letter-spacing: 0.05em;
+}
+
+.overallGradeScore {
+  font-size: 0.68rem;
+  color: #5a6478;
+  margin-top: 6px;
+  letter-spacing: 0.06em;
+}
+
+.gradesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.gradeCard {
+  background: rgba(15,19,24,0.8);
+  border: 1px solid rgba(255,255,255,0.04);
+  border-left: 3px solid rgba(245, 75, 46, 0.4);
+  padding: 18px 20px;
+  transition: border-left-color 0.2s;
+}
+
+.gradeCard:hover {
+  border-left-color: #f54b2e;
+}
+
+.gradeCardTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.gradeLetter {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
+}
+
+.gradeA { color: #22d3a5; }
+.gradeB { color: #f54b2e; }
+.gradeC { color: #f59e0b; }
+.gradeD { color: #ef4444; }
+
+.gradeStatus {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 2px;
+}
+
+.status_lider {
+  color: #22d3a5;
+  background: rgba(34, 211, 165, 0.1);
+  border: 1px solid rgba(34, 211, 165, 0.25);
+}
+
+.status_competitivo {
+  color: #4a7aff;
+  background: rgba(74, 122, 255, 0.1);
+  border: 1px solid rgba(74, 122, 255, 0.25);
+}
+
+.status_melhorar {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.25);
+}
+
+.status_tradeoff {
+  color: #9aa0ad;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.gradeCardTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #e8e2d6;
+  margin-bottom: 8px;
+  letter-spacing: 0.03em;
+}
+
+.gradeCardMeta {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.gradeCardScore {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.1rem;
+  color: #f54b2e;
+  letter-spacing: 0.05em;
+}
+
+.gradeCardRank {
+  font-size: 0.68rem;
+  color: #5a6478;
+  align-self: center;
+}
+
+.gradeBar {
+  height: 3px;
+  background: rgba(255,255,255,0.06);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+.gradeBarFill {
+  height: 100%;
+  background: linear-gradient(to right, #f54b2e, rgba(245, 75, 46, 0.5));
+  border-radius: 2px;
+  transition: width 0.6s ease;
+}
+
+.gradeGap {
+  font-size: 0.65rem;
+  color: #5a6478;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.gradeGapLeader {
+  font-size: 0.65rem;
+  color: #22d3a5;
+  margin: 0;
+}
+
+/* ── UPGRADE SECTION ── */
+.upgradeSection {
+  padding: 32px 40px 48px;
+  border-top: 1px solid rgba(245, 75, 46, 0.08);
+}
+
+.upgradeSectionHeader {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+  flex-wrap: wrap;
+}
+
+.upgradeSectionTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.6rem;
+  letter-spacing: 0.1em;
+  color: #e8e2d6;
+  margin-bottom: 6px;
+}
+
+.upgradeSectionSub {
+  font-size: 0.72rem;
+  color: #3a4a5e;
+  letter-spacing: 0.04em;
+}
+
+.projectedScore {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.projectedLabel {
+  font-size: 0.58rem;
+  font-weight: 600;
+  letter-spacing: 0.25em;
+  color: #22d3a5;
+  margin-bottom: 4px;
+}
+
+.projectedValue {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 2.4rem;
+  line-height: 1;
+  color: #22d3a5;
+  letter-spacing: 0.05em;
+}
+
+.projectedDelta {
+  font-size: 0.68rem;
+  color: #5a6478;
+  margin-top: 4px;
+}
+
+.upgradeList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.upgradeCard {
+  background: rgba(15,19,24,0.7);
+  border: 1px solid rgba(255,255,255,0.04);
+  padding: 20px 24px;
+  position: relative;
+  transition: border-color 0.2s;
+}
+
+.upgradeCard:hover {
+  border-color: rgba(245, 75, 46, 0.25);
+}
+
+.upgradeCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3px;
+  height: 100%;
+  background: linear-gradient(to bottom, #f54b2e, transparent);
+}
+
+.upgradeCardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.upgradePriority {
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 2px;
+}
+
+.priorityAlta {
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+}
+
+.priorityMedia {
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+}
+
+.priorityBaixa {
+  color: #5a6478;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.upgradeImpact {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 0.95rem;
+  color: #22d3a5;
+  letter-spacing: 0.06em;
+}
+
+.upgradeCategory {
+  font-size: 0.62rem;
+  color: #5a6478;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-left: auto;
+}
+
+.upgradeTitle {
+  font-family: 'Inter', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e8e2d6;
+  margin-bottom: 8px;
+}
+
+.upgradeDesc {
+  font-size: 0.75rem;
+  color: #6b7a8d;
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.upgradeItems {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+  padding: 0;
+}
+
+.upgradeItems li {
+  font-size: 0.72rem;
+  color: #9aa0ad;
+  padding-left: 16px;
+  position: relative;
+}
+
+.upgradeItems li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: #f54b2e;
+  font-size: 0.65rem;
+}
+
+.upgradeRef {
+  font-size: 0.65rem;
+  color: #3a4a5e;
+  margin: 0;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.upgradeRef span {
+  color: #f54b2e;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-right: 6px;
+}
+
 /* ── FOOTER ── */
 .reportFooter {
   display: flex;
@@ -557,9 +991,23 @@
     padding: 16px 20px 32px;
   }
 
-  .featuresTableHead,
-  .featuresRow {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+  .competitorLegend {
+    padding: 12px 20px;
+    gap: 10px 16px;
+  }
+
+  .gradesSection,
+  .upgradeSection {
+    padding: 24px 20px 32px;
+  }
+
+  .gradesGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .featuresTableHeadWide,
+  .featuresRowWide {
+    grid-template-columns: 1.2fr repeat(5, 0.8fr);
   }
 
   .reportFooter {
@@ -648,6 +1096,33 @@
 
   .featuresSection {
     padding: 12px 14px 28px;
+  }
+
+  .competitorLegend {
+    padding: 10px 14px;
+  }
+
+  .legendName {
+    font-size: 0.65rem;
+  }
+
+  .gradesSection,
+  .upgradeSection {
+    padding: 20px 14px 28px;
+  }
+
+  .gradesGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .overallGradeCard {
+    width: 100%;
+  }
+
+  .projectedScore {
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
   }
 
   .featuresSectionHeader {

@@ -4,82 +4,68 @@ import * as THREE from 'three'
 
 // Material mapping by mesh name (color-coded from 3ds Max)
 // Groups identified by color: body panel, glass, wheels, chrome, interior, etc.
+const METALLIC_BLACK = '#0a0a0a'
+
+const BODY_METAL = {
+  color: METALLIC_BLACK,
+  roughness: 0.18,
+  metalness: 0.88,
+  clearcoat: 1.0,
+  clearcoatRoughness: 0.08,
+  envMapIntensity: 2.0,
+  type: 'physical',
+}
+
 const MATERIAL_MAP = {
-  wire_134110008: { // dark gold → body paint
-    color: '#000000ff',
-    roughness: 0.12,
-    metalness: 0.85,
-    clearcoat: 1.0,
-    clearcoatRoughness: 0.05,
-    type: 'physical',
-  },
-  wire_224198087: { // gold/yellow → chrome / trim
-    color: '#000000ff',
-    roughness: 0.08,
-    metalness: 1.0,
-    envMapIntensity: 3,
-    type: 'standard',
-  },
-  wire_177028149: { // purple → interior / plastic
-    color: '#000000ff',
-    roughness: 0.6,
-    metalness: 0.1,
-    type: 'standard',
-  },
-  wire_134006006: { // dark red → underbody / frame
-    color: '#000000ff',
-    roughness: 0.9,
-    metalness: 0.15,
-    type: 'standard',
-  },
-  wire_087224198: { // teal → glass
-    color: '#000000ff',
-    roughness: 0.04,
-    metalness: 0.05,
-    transmission: 0.88,
-    transparent: true,
-    opacity: 0.55,
-    ior: 1.5,
-    type: 'physical',
-  },
-  wire_006134006: { // green → tires / rubber
-    color: '#141414',
-    roughness: 0.92,
-    metalness: 0.0,
-    type: 'standard',
-  },
-  wire_224086086: { // salmon/red → body panels 2
-    color: '#000000ff',
-    roughness: 0.12,
-    metalness: 0.85,
-    clearcoat: 1.0,
-    clearcoatRoughness: 0.05,
-    type: 'physical',
-  },
-  wire_229166215: { // pink → lights / lenses
-    color: '#000000ff',
-    emissive: '#ffe88a',
-    emissiveIntensity: 0.6,
-    roughness: 0.05,
-    metalness: 0.0,
-    type: 'standard',
-  },
-  wire_028089177: { // blue → rim / wheels
-    color: '#000000ff',
-    roughness: 0.15,
+  wire_134110008: BODY_METAL,
+  wire_224198087: { // chrome / trim
+    color: '#1a1a1a',
+    roughness: 0.2,
     metalness: 0.95,
     envMapIntensity: 2.5,
     type: 'standard',
   },
-  wire_143224087: { // lime → body accent / orange trim (now matching body)
-    color: '#000000ff',
-    roughness: 0.12,
-    metalness: 0.85,
-    clearcoat: 1.0,
-    clearcoatRoughness: 0.05,
-    type: 'physical',
+  wire_177028149: { // interior / plastic
+    color: '#111111',
+    roughness: 0.5,
+    metalness: 0.3,
+    envMapIntensity: 1.0,
+    type: 'standard',
   },
+  wire_134006006: { // underbody / frame
+    color: '#080808',
+    roughness: 0.7,
+    metalness: 0.4,
+    envMapIntensity: 0.8,
+    type: 'standard',
+  },
+  wire_087224198: BODY_METAL, // glass → same metallic body (no transparency)
+  wire_006134006: { // tires / rubber
+    color: '#0f0f0f',
+    roughness: 0.95,
+    metalness: 0.0,
+    type: 'standard',
+  },
+  wire_224086086: BODY_METAL,
+  wire_229166215: { // lights / lenses
+    color: '#1a1a1a',
+    emissive: '#331100',
+    emissiveIntensity: 0.15,
+    roughness: 0.3,
+    metalness: 0.5,
+    type: 'standard',
+  },
+  wire_028089177: { // rim / wheels
+    color: '#141414',
+    roughness: 0.25,
+    metalness: 0.85,
+    envMapIntensity: 2.0,
+    type: 'standard',
+  },
+  wire_143224087: BODY_METAL,
 }
+
+const DEFAULT_METAL = BODY_METAL
 
 function buildMaterial(cfg) {
   if (cfg.type === 'physical') {
@@ -121,10 +107,8 @@ export default function FordF150() {
         obj.castShadow = true
         obj.receiveShadow = true
 
-        const cfg = MATERIAL_MAP[obj.name]
-        if (cfg) {
-          obj.material = buildMaterial(cfg)
-        }
+        const cfg = MATERIAL_MAP[obj.name] ?? DEFAULT_METAL
+        obj.material = buildMaterial(cfg)
       }
     })
 

@@ -10,14 +10,14 @@ import fordLogo from '../assets/Ford-Logo-PNG-Isolated-Image.webp'
 
 // Camera positions & targets for each view
 const VIEWS = {
-  geral_traseira:  { pos: [-8, 1.5, -5],  target: [0, 0, 0], label: 'Traseira' },
+  geral_traseira:  { pos: [0,  1.5, 10],  target: [0, 0, 0], label: 'Traseira' },
   geral_lateral:   { pos: [10, 1.0, 0],   target: [0, 0, 0], label: 'Lateral' },
-  geral_frente:    { pos: [0,  1.5, 10],  target: [0, 0, 0], label: 'Frente' },
+  geral_frente:    { pos: [0,  1.5, -10], target: [0, 0, 0], label: 'Frente' },
   geral_topo:      { pos: [0,  8,   0],   target: [0, 0, 0], label: 'Topo' },
   motor_frente:    { pos: [0,  2,   7],   target: [0, 1, 0], label: 'Motor' },
   motor_hood:      { pos: [0,  4,   4],   target: [0, 0.5, 0], label: 'Capô' },
-  rodas_dianteira: { pos: [5,  0.4, 5],   target: [2, -1, 2], label: 'Roda Dianteira' },
-  rodas_traseira:  { pos: [-5, 0.4, -4],  target: [-2, -1, -2], label: 'Roda Traseira' },
+  rodas_dianteira: { pos: [-5, 0.4, -4],  target: [-2, -1, -2], label: 'Roda Dianteira' },
+  rodas_traseira:  { pos: [5,  0.4, 5],   target: [2, -1, 2], label: 'Roda Traseira' },
   caçamba:         { pos: [-6, 3,  -2],   target: [-1, 0.5, -1], label: 'Caçamba' },
   cockpit:         { pos: [2,  2,   5],   target: [0, 1, 0], label: 'Cockpit' },
 }
@@ -72,13 +72,12 @@ const SPECS_DATA = [
   ]},
 ]
 
-// ── HOTSPOT DATA (positioned as % of the canvas area for geral_lateral view)
-const HOTSPOTS = [
+// ── COMPONENT EXPLORER DATA
+const COMPONENTS = [
   {
     id: 'retrovisor',
-    left: '60%',
-    top:  '36%',
-    panelSide: 'right',
+    icon: '🪞',
+    viewId: 'geral_lateral',
     title: 'Retrovisor Integrado',
     description: 'Espelhos retrovisores rebatíveis eletricamente com aquecimento e câmera de ponto cego integrada.',
     specs: [
@@ -95,9 +94,8 @@ const HOTSPOTS = [
   },
   {
     id: 'farol',
-    left: '85%',
-    top:  '40%',
-    panelSide: 'left',
+    icon: '💡',
+    viewId: 'geral_frente',
     title: 'Faróis LED Matrix',
     description: 'Faróis full-LED com tecnologia Matrix adaptativa, ajuste automático de altura e DRL signature.',
     specs: [
@@ -114,9 +112,8 @@ const HOTSPOTS = [
   },
   {
     id: 'roda_dianteira',
-    left: '76%',
-    top:  '65%',
-    panelSide: 'left',
+    icon: '🛞',
+    viewId: 'rodas_dianteira',
     title: 'Suspensão Fox 2.5"',
     description: 'Suspensão dianteira Fox Racing Shox 2.5" bypass com ajuste de amortecimento para off-road extremo.',
     specs: [
@@ -133,9 +130,8 @@ const HOTSPOTS = [
   },
   {
     id: 'roda_traseira',
-    left: '22%',
-    top:  '65%',
-    panelSide: 'right',
+    icon: '⚙️',
+    viewId: 'rodas_traseira',
     title: 'Suspensão Traseira Multilink',
     description: 'Eixo traseiro multilink com Fox Racing Shox, projetado para máxima estabilidade em terrenos irregulares.',
     specs: [
@@ -152,9 +148,8 @@ const HOTSPOTS = [
   },
   {
     id: 'cacamba',
-    left: '27%',
-    top:  '42%',
-    panelSide: 'right',
+    icon: '📦',
+    viewId: 'caçamba',
     title: 'Caçamba Inteligente',
     description: 'Caçamba em alumínio de alta resistência com proteção de carga, tomadas 12V/220V e iluminação LED.',
     specs: [
@@ -171,9 +166,8 @@ const HOTSPOTS = [
   },
   {
     id: 'motor',
-    left: '82%',
-    top:  '30%',
-    panelSide: 'left',
+    icon: '🔥',
+    viewId: 'motor_hood',
     title: 'Motor 3.0 V6 Bi-Turbo',
     description: 'Bloco V6 biturbo diesel com 397 cv e 583 Nm de torque. O mais potente da categoria pickup off-road.',
     specs: [
@@ -249,66 +243,42 @@ function CameraController({ targetView }) {
   return null
 }
 
-// Single Hotspot component
-function Hotspot({ data, isActive, onEnter, onLeave }) {
-  const panelLeft = data.panelSide === 'left'
-
+function ComponentDetailPanel({ data }) {
   return (
-    <div
-      className={`${styles.hotspot} ${isActive ? styles.hotspotActive : ''}`}
-      style={{ left: data.left, top: data.top }}
-      onMouseEnter={onEnter}
-      onMouseLeave={onLeave}
-    >
-      <div className={styles.hotspotRing} />
-      <div className={styles.hotspotDot} />
-
-      {isActive && (
-        <div className={`${styles.hotspotPanel} ${panelLeft ? styles.panelLeft : styles.panelRight}`}>
-          {/* SVG connector line */}
-          <svg
-            className={`${styles.hotspotLine} ${panelLeft ? styles.lineLeft : styles.lineRight}`}
-            viewBox="0 0 80 2"
-            preserveAspectRatio="none"
-          >
-            <line x1="0" y1="1" x2="80" y2="1" stroke="#f54b2e" strokeWidth="1" strokeDasharray="4 3" />
-          </svg>
-
-          <div className={styles.panelInner}>
-            <div className={styles.panelHeader}>
-              <h4 className={styles.panelTitle}>{data.title}</h4>
-              <DonutScore score={data.score} />
-            </div>
-            <p className={styles.panelDesc}>{data.description}</p>
-            <div className={styles.panelSpecs}>
-              {data.specs.map(s => (
-                <div key={s.label} className={styles.panelSpecRow}>
-                  <span className={styles.panelSpecLabel}>{s.label}</span>
-                  <span className={styles.panelSpecValue}>{s.value}</span>
-                </div>
-              ))}
-            </div>
-            <div className={styles.panelCompare}>
-              <span className={styles.panelCompareLabel}>VS. COMPETIDORES</span>
-              {data.competitors.map(c => (
-                <div key={c.name} className={styles.panelCompareRow}>
-                  <span className={styles.panelCompareName}>{c.name}</span>
-                  <div className={styles.panelCompareBar}>
-                    <div
-                      className={styles.panelCompareBarFill}
-                      style={{
-                        width: `${c.value}%`,
-                        background: c.name === 'Ranger Raptor' ? '#f54b2e' : 'rgba(255,255,255,0.2)',
-                      }}
-                    />
-                  </div>
-                  <span className={styles.panelCompareScore}>{c.value}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+    <div className={styles.componentDetail}>
+      <div className={styles.panelInner}>
+        <div className={styles.panelHeader}>
+          <h4 className={styles.panelTitle}>{data.title}</h4>
+          <DonutScore score={data.score} />
         </div>
-      )}
+        <p className={styles.panelDesc}>{data.description}</p>
+        <div className={styles.panelSpecs}>
+          {data.specs.map(s => (
+            <div key={s.label} className={styles.panelSpecRow}>
+              <span className={styles.panelSpecLabel}>{s.label}</span>
+              <span className={styles.panelSpecValue}>{s.value}</span>
+            </div>
+          ))}
+        </div>
+        <div className={styles.panelCompare}>
+          <span className={styles.panelCompareLabel}>VS. COMPETIDORES</span>
+          {data.competitors.map(c => (
+            <div key={c.name} className={styles.panelCompareRow}>
+              <span className={styles.panelCompareName}>{c.name}</span>
+              <div className={styles.panelCompareBar}>
+                <div
+                  className={styles.panelCompareBarFill}
+                  style={{
+                    width: `${c.value}%`,
+                    background: c.name === 'Ranger Raptor' ? '#f54b2e' : 'rgba(255,255,255,0.2)',
+                  }}
+                />
+              </div>
+              <span className={styles.panelCompareScore}>{c.value}</span>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   )
 }
@@ -317,10 +287,10 @@ export default function SpecsPage({ onBack, onViewReport, onHome }) {
   const [activeView, setActiveView] = useState('geral_lateral')
   const [openCategory, setOpenCategory] = useState('geral')
   const [activeSection, setActiveSection] = useState(0)
-  const [activeHotspot, setActiveHotspot] = useState(null)
+  const [activeComponent, setActiveComponent] = useState(null)
 
   const view = VIEWS[activeView]
-  const showHotspots = activeView === 'geral_lateral'
+  const selectedComponent = COMPONENTS.find(c => c.id === activeComponent)
 
   function handleCategory(id) {
     setOpenCategory(id === openCategory ? null : id)
@@ -328,7 +298,19 @@ export default function SpecsPage({ onBack, onViewReport, onHome }) {
 
   function handleView(viewId) {
     setActiveView(viewId)
-    setActiveHotspot(null)
+  }
+
+  function handleComponentSelect(component) {
+    if (activeComponent === component.id) {
+      setActiveComponent(null)
+      return
+    }
+    setActiveComponent(component.id)
+    if (component.viewId) {
+      setActiveView(component.viewId)
+      const parentCat = NAV_CATEGORIES.find(cat => cat.children.includes(component.viewId))
+      if (parentCat) setOpenCategory(parentCat.id)
+    }
   }
 
   return (
@@ -360,24 +342,29 @@ export default function SpecsPage({ onBack, onViewReport, onHome }) {
         </Canvas>
       </div>
 
-      {/* Hotspot Layer — only on lateral view */}
-      {showHotspots && (
-        <div className={styles.hotspotLayer}>
-          {HOTSPOTS.map(h => (
-            <Hotspot
-              key={h.id}
-              data={h}
-              isActive={activeHotspot === h.id}
-              onEnter={() => setActiveHotspot(h.id)}
-              onLeave={() => setActiveHotspot(null)}
-            />
+      {/* Component Explorer */}
+      <aside className={styles.componentExplorer}>
+        <div className={styles.explorerLabel}>COMPONENTES</div>
+        <p className={styles.explorerHint}>Selecione para ver specs e comparar</p>
+        <div className={styles.explorerList}>
+          {COMPONENTS.map(c => (
+            <button
+              key={c.id}
+              type="button"
+              className={`${styles.explorerItem} ${activeComponent === c.id ? styles.explorerItemActive : ''}`}
+              onClick={() => handleComponentSelect(c)}
+            >
+              <span className={styles.explorerIcon}>{c.icon}</span>
+              <div className={styles.explorerMeta}>
+                <span className={styles.explorerName}>{c.title}</span>
+                <span className={styles.explorerScore}>{c.score}/100</span>
+              </div>
+              <span className={styles.explorerChevron}>{activeComponent === c.id ? '▲' : '›'}</span>
+            </button>
           ))}
-          <div className={styles.hotspotHint}>
-            <span className={styles.hotspotHintDot} />
-            Passe o mouse sobre os pontos para explorar
-          </div>
         </div>
-      )}
+        {selectedComponent && <ComponentDetailPanel data={selectedComponent} />}
+      </aside>
 
       {/* Header */}
       <header className={styles.header}>
