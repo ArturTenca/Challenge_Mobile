@@ -896,13 +896,216 @@
 }
 
 /* ── PRINT STYLES ── */
+@page {
+  size: A4 portrait;
+  margin: 10mm 8mm;
+}
+
 @media print {
-  .header { position: static; }
-  .exportGroup, .backBtn { display: none; }
-  .scroll { overflow: visible; height: auto; }
-  .page { height: auto; overflow: visible; }
-  .chartCard { break-inside: avoid; }
-  .featuresTable { break-inside: avoid; }
+  :root {
+    color-scheme: light;
+  }
+
+  html, body {
+    background: #ffffff !important;
+  }
+
+  body {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .header {
+    position: static;
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(15, 19, 24, 0.15);
+    padding: 0 0 12px !important;
+  }
+
+  .headerLeft,
+  .headerRight {
+    gap: 10px;
+  }
+
+  .headerMain,
+  .heroTitle,
+  .chartCardTitle,
+  .featuresSectionTitle,
+  .gradesSectionTitle,
+  .upgradeSectionTitle,
+  .gradeCardTitle,
+  .upgradeTitle {
+    color: #111827 !important;
+  }
+
+  .exportGroup,
+  .backBtn {
+    display: none !important;
+  }
+
+  .scroll {
+    overflow: visible !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .page {
+    width: 100% !important;
+    max-width: 100% !important;
+    height: auto !important;
+    min-height: auto !important;
+    overflow: visible !important;
+    background: #ffffff !important;
+    color: #111827 !important;
+  }
+
+  .heroStrip {
+    display: block;
+    padding: 0 0 16px !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(15, 19, 24, 0.15);
+  }
+
+  .heroGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  .heroCard {
+    background: #f8fafc !important;
+    border: 1px solid rgba(15, 19, 24, 0.08);
+    border-top: 2px solid rgba(245, 75, 46, 0.4);
+  }
+
+  .heroCardLabel,
+  .heroCardSub,
+  .heroDesc,
+  .chartCardSub,
+  .legendName,
+  .gradeGap,
+  .gradeGapLeader,
+  .upgradeDesc,
+  .upgradeRef,
+  .reportFooter span,
+  .projectedDelta,
+  .gradeCardRank,
+  .overallGradeScore {
+    color: #475569 !important;
+  }
+
+  .competitorLegend {
+    padding: 10px 0 12px !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(15, 19, 24, 0.15);
+  }
+
+  .chartsRow {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px 0 0 !important;
+    background: #ffffff !important;
+  }
+
+  .chartCard,
+  .featuresTable,
+  .gradeCard,
+  .upgradeCard,
+  .overallGradeCard {
+    background: #ffffff !important;
+    border: 1px solid rgba(15, 19, 24, 0.08) !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .chartCard {
+    break-inside: avoid;
+    page-break-inside: avoid;
+    padding: 16px 14px 12px !important;
+  }
+
+  .chartCard::before {
+    background: linear-gradient(to right, #f54b2e, rgba(245, 75, 46, 0.3));
+  }
+
+  .featuresSection,
+  .gradesSection,
+  .upgradeSection,
+  .reportFooter {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    background: #ffffff !important;
+  }
+
+  .featuresSection {
+    padding-top: 18px !important;
+    padding-bottom: 0 !important;
+  }
+
+  .featuresSectionHeader,
+  .gradesSectionHeader,
+  .upgradeSectionHeader {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+
+  .featuresTabs {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+
+  .featuresTab {
+    background: #f8fafc !important;
+    color: #334155 !important;
+    border-color: rgba(15, 19, 24, 0.15);
+  }
+
+  .featuresTabActive {
+    background: rgba(245, 75, 46, 0.08) !important;
+    color: #f54b2e !important;
+    border-color: rgba(245, 75, 46, 0.4);
+  }
+
+  .featuresTable {
+    overflow: visible;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .featuresTableHeadWide,
+  .featuresRowWide {
+    grid-template-columns: 1.7fr repeat(5, minmax(0, 1fr));
+  }
+
+  .gradesGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+
+  .gradeCard {
+    padding: 14px 16px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .upgradeList {
+    gap: 10px;
+  }
+
+  .upgradeCard {
+    padding: 16px 18px;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .reportFooter {
+    padding-top: 10px !important;
+    border-top: 1px solid rgba(15, 19, 24, 0.15);
+  }
 }
 
 /* ═══════════════════════════════════════
