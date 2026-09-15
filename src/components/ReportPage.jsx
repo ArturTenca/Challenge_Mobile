@@ -8,12 +8,28 @@ import styles from './ReportPage.module.css'
 import fordLogo from '../assets/Ford-Logo-PNG-Isolated-Image.webp'
 
 // ── COMPETITORS ─────────────────────────────────────────────────────────────
+const PRINT_COMPETITOR_COLORS = {
+  raptor: '#f54b2e',
+  hilux: '#ef4444',
+  amarok: '#3b82f6',
+  s10: '#eab308',
+  l200: '#8b5cf6',
+}
+
+const SCREEN_COMPETITOR_COLORS = {
+  raptor: '#f54b2e',
+  hilux: '#6b4d4d',
+  amarok: '#4d5d7d',
+  s10: '#5e5a46',
+  l200: '#4a4d63',
+}
+
 const COMPETITORS = [
-  { id: 'raptor', name: 'Ranger Raptor', short: 'Raptor', color: '#f54b2e' },
-  { id: 'hilux', name: 'Hilux GR-S', short: 'Hilux', color: '#ef4444' },
-  { id: 'amarok', name: 'Amarok V6', short: 'Amarok', color: '#3b82f6' },
-  { id: 's10', name: 'S10 High Country', short: 'S10', color: '#eab308' },
-  { id: 'l200', name: 'L200 Triton', short: 'L200', color: '#8b5cf6' },
+  { id: 'raptor', name: 'Ranger Raptor', short: 'Raptor', color: PRINT_COMPETITOR_COLORS.raptor },
+  { id: 'hilux', name: 'Hilux GR-S', short: 'Hilux', color: PRINT_COMPETITOR_COLORS.hilux },
+  { id: 'amarok', name: 'Amarok V6', short: 'Amarok', color: PRINT_COMPETITOR_COLORS.amarok },
+  { id: 's10', name: 'S10 High Country', short: 'S10', color: PRINT_COMPETITOR_COLORS.s10 },
+  { id: 'l200', name: 'L200 Triton', short: 'L200', color: PRINT_COMPETITOR_COLORS.l200 },
 ]
 
 const RADAR_DATA = [
@@ -289,6 +305,7 @@ function statusLabel(status) {
 export default function ReportPage({ onBack, onHome }) {
   const [activeCategory, setActiveCategory] = useState(0)
   const [exporting, setExporting] = useState(null)
+  const [isPrintingReport, setIsPrintingReport] = useState(false)
 
   function exportCSV() {
     setExporting('csv')
@@ -318,10 +335,18 @@ export default function ReportPage({ onBack, onHome }) {
 
   function exportPDF() {
     setExporting('pdf')
+    setIsPrintingReport(true)
     window.print()
-    setTimeout(() => setExporting(null), 2000)
+    setTimeout(() => {
+      setIsPrintingReport(false)
+      setExporting(null)
+    }, 2000)
   }
 
+  const isVisualPrintMode = exporting === 'pdf' || isPrintingReport
+  const palette = isVisualPrintMode ? PRINT_COMPETITOR_COLORS : SCREEN_COMPETITOR_COLORS
+  const competitorPalette = COMPETITORS.map(c => ({ ...c, color: c.id === 'raptor' ? palette.raptor : palette[c.id] }))
+  const overallScores = OVERALL_SCORES.map(score => ({ ...score, fill: score.name.includes('Ranger') ? palette.raptor : palette[score.name.includes('Amarok') ? 'amarok' : score.name.includes('S10') ? 's10' : score.name.includes('Hilux') ? 'hilux' : 'l200'] }))
   const cat = FEATURES_COMPARISON[activeCategory]
   const projectedScore = Math.min(
     99,
@@ -390,7 +415,7 @@ export default function ReportPage({ onBack, onHome }) {
         </section>
 
         <section className={styles.competitorLegend}>
-          {COMPETITORS.map(c => (
+          {competitorPalette.map(c => (
             <div key={c.id} className={styles.legendItem}>
               <span className={styles.legendDot} style={{ background: c.color }} />
               <span className={styles.legendName}>{c.name}</span>
@@ -410,11 +435,11 @@ export default function ReportPage({ onBack, onHome }) {
                 <PolarGrid stroke="rgba(255,255,255,0.06)" />
                 <PolarAngleAxis dataKey="subject" tick={{ fill: '#5a6478', fontSize: 10, fontFamily: 'Inter' }} />
                 <PolarRadiusAxis angle={30} domain={[0, 100]} tick={false} axisLine={false} />
-                <Radar name="Raptor" dataKey="Raptor" stroke="#f54b2e" fill="#f54b2e" fillOpacity={0.2} strokeWidth={2.5} />
-                <Radar name="Hilux" dataKey="Hilux" stroke="#ef4444" fill="#ef4444" fillOpacity={0.05} strokeWidth={1.5} />
-                <Radar name="Amarok" dataKey="Amarok" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.08} strokeWidth={1.5} />
-                <Radar name="S10" dataKey="S10" stroke="#eab308" fill="#eab308" fillOpacity={0.05} strokeWidth={1.5} />
-                <Radar name="L200" dataKey="L200" stroke="#8b5cf6" fill="#8b5cf6" fillOpacity={0.05} strokeWidth={1.5} />
+                <Radar name="Raptor" dataKey="Raptor" stroke={palette.raptor} fill={palette.raptor} fillOpacity={0.2} strokeWidth={2.5} />
+                <Radar name="Hilux" dataKey="Hilux" stroke={palette.hilux} fill={palette.hilux} fillOpacity={0.08} strokeWidth={1.5} />
+                <Radar name="Amarok" dataKey="Amarok" stroke={palette.amarok} fill={palette.amarok} fillOpacity={0.08} strokeWidth={1.5} />
+                <Radar name="S10" dataKey="S10" stroke={palette.s10} fill={palette.s10} fillOpacity={0.05} strokeWidth={1.5} />
+                <Radar name="L200" dataKey="L200" stroke={palette.l200} fill={palette.l200} fillOpacity={0.05} strokeWidth={1.5} />
                 <Legend wrapperStyle={{ fontSize: '0.65rem', color: '#5a6478', fontFamily: 'Inter' }} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
               </RadarChart>
@@ -433,11 +458,11 @@ export default function ReportPage({ onBack, onHome }) {
                 <YAxis tick={{ fill: '#5a6478', fontSize: 9, fontFamily: 'Inter' }} />
                 <Tooltip contentStyle={TOOLTIP_STYLE} />
                 <Legend wrapperStyle={{ fontSize: '0.65rem', color: '#5a6478', fontFamily: 'Inter' }} />
-                <Bar dataKey="raptor" name="Raptor" fill="#f54b2e" radius={[2, 2, 0, 0]} />
-                <Bar dataKey="hilux" name="Hilux" fill="#ef4444" radius={[2, 2, 0, 0]} />
-                <Bar dataKey="amarok" name="Amarok" fill="#3b82f6" radius={[2, 2, 0, 0]} />
-                <Bar dataKey="s10" name="S10" fill="#eab308" radius={[2, 2, 0, 0]} />
-                <Bar dataKey="l200" name="L200" fill="#8b5cf6" radius={[2, 2, 0, 0]} />
+                <Bar dataKey="raptor" name="Raptor" fill={palette.raptor} radius={[2, 2, 0, 0]} />
+                <Bar dataKey="hilux" name="Hilux" fill={palette.hilux} radius={[2, 2, 0, 0]} />
+                <Bar dataKey="amarok" name="Amarok" fill={palette.amarok} radius={[2, 2, 0, 0]} />
+                <Bar dataKey="s10" name="S10" fill={palette.s10} radius={[2, 2, 0, 0]} />
+                <Bar dataKey="l200" name="L200" fill={palette.l200} radius={[2, 2, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -451,7 +476,7 @@ export default function ReportPage({ onBack, onHome }) {
               <RadialBarChart
                 innerRadius="25%"
                 outerRadius="90%"
-                data={OVERALL_SCORES}
+                data={overallScores}
                 startAngle={180}
                 endAngle={-180}
               >
@@ -460,6 +485,8 @@ export default function ReportPage({ onBack, onHome }) {
                   background={{ fill: 'rgba(255,255,255,0.03)' }}
                   dataKey="value"
                   label={{ fill: '#e8e2d6', fontSize: 10, fontFamily: 'Inter' }}
+                  cornerRadius={8}
+                  clockWise
                 />
                 <Legend
                   iconSize={10}
