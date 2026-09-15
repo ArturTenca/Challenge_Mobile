@@ -33,7 +33,7 @@ export default function HeroUI({ onViewSpecs, onViewReport, onHome }) {
       </header>
 
       <div className={styles.leftPanel}>
-        <p className={styles.eyebrow}>Built Ford Tough™</p>
+        <p className={styles.eyebrow}>Ford Vision™</p>
         <h1 className={styles.title}>
           <span className={styles.titleF}>Ranger</span>
           <span className={styles.titleSub}>Raptor</span>
