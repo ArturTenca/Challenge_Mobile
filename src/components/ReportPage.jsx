@@ -226,10 +226,10 @@ function buildCSVContent() {
 }
 
 function buildTXTContent() {
-  return `FORD RANGER RAPTOR 2026 - RELATÓRIO COMPARATIVO
+  return `FORD VISION - RELATÓRIO COMPARATIVO
 ${'='.repeat(60)}
 Gerado em: ${new Date().toLocaleString('pt-BR')}
-Análise: Ranger Raptor vs principais concorrentes do segmento
+Análise: Ford Vision vs principais concorrentes do segmento
 
 CONCORRENTES ANALISADOS
 ${'─'.repeat(60)}
@@ -297,7 +297,7 @@ export default function ReportPage({ onBack, onHome }) {
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = 'ranger-raptor-comparativo.csv'
+    a.download = 'ford-srv-smart-report-view.csv'
     a.click()
     URL.revokeObjectURL(url)
     setTimeout(() => setExporting(null), 1200)
@@ -310,7 +310,7 @@ export default function ReportPage({ onBack, onHome }) {
     const url = URL.createObjectURL(blob)
     const a = document.createElement('a')
     a.href = url
-    a.download = 'ranger-raptor-comparativo.txt'
+    a.download = 'ford-srv-smart-report-view.txt'
     a.click()
     URL.revokeObjectURL(url)
     setTimeout(() => setExporting(null), 1200)
@@ -336,7 +336,7 @@ export default function ReportPage({ onBack, onHome }) {
             <img src={fordLogo} alt="Ford" className={styles.logoImg} />
           </button>
           <div className={styles.headerTitle}>
-            <span className={styles.headerSub}>RANGER RAPTOR 2026</span>
+            <span className={styles.headerSub}>FORD VISION</span>
             <span className={styles.headerMain}>Relatório Comparativo</span>
           </div>
         </div>

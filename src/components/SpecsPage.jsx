@@ -373,7 +373,7 @@ export default function SpecsPage({ onBack, onViewReport, onHome }) {
         </button>
         <nav className={styles.nav}>
           <button className={styles.backBtn} onClick={onBack}>← Voltar</button>
-          <span className={styles.navTitle}>Ranger Raptor 2026 · Especificações</span>
+          <span className={styles.navTitle}>Ford Vision · Especificações</span>
           {onViewReport && (
             <button className={styles.reportBtn} onClick={onViewReport}>Relatório</button>
           )}
